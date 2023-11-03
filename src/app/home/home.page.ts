@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WordsAPIService } from '../services/words-api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  constructor(private api: WordsAPIService) {}
 
-  constructor() {}
+  getWord(word: string) {
+    this.api.getWord(word).subscribe(result => console.log(result));
+  }
 
 }
