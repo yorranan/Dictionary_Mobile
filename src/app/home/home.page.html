@@ -1,11 +1,11 @@
 <ion-content [fullscreen]="true">
     <div class="container">
       <ion-item>
-        <ion-searchbar animated="true" placeholder="Digite uma palavra"></ion-searchbar>
+        <ion-searchbar  [(ngModel)]="word" animated="true" placeholder="Digite uma palavra"></ion-searchbar>
       </ion-item>
       <ion-item>
         <div class="container center-button">
-          <ion-button (click)="getWord('hatchback')">Buscar</ion-button>
+          <ion-button (click)="getWord(word)">Search</ion-button>
         </div>
       </ion-item>
     </div>
