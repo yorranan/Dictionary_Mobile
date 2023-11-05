@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  word!: string;
   constructor(private router: Router) {}
 
   getWord(word: string) {
