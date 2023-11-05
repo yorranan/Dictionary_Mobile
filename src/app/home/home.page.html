@@ -1,11 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-button (click)="getWord('hatchback')">Teste Retorno API</ion-button>
+    <div class="container">
+      <ion-item>
+        <ion-searchbar animated="true" placeholder="Digite uma palavra"></ion-searchbar>
+      </ion-item>
+      <ion-item>
+        <div class="container center-button">
+          <ion-button (click)="getWord('hatchback')">Buscar</ion-button>
+        </div>
+      </ion-item>
+    </div>
 </ion-content>
