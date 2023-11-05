@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'view-word',
+    loadChildren: () => import('./view-word/view-word.module').then( m => m.ViewWordPageModule)
+  },
 ];
 
 @NgModule({

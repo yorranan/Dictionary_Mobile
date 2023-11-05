@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WordsAPIService } from '../services/words-api.service';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private api: WordsAPIService) {}
+  constructor(private router: Router) {}
 
   getWord(word: string) {
-    this.api.getWord(word).subscribe(result => console.log(result));
+    this.router.navigate(['/view-word'], {state: {word}});
   }
 
 }
