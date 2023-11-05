@@ -1,12 +1,21 @@
 <ion-content [fullscreen]="true">
+  <div id="search">
+    <ion-item lines="none">
+      <div class="container">
+        <h1>WordSearcher</h1>
+      </div>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-searchbar
+        [(ngModel)]="word"
+        animated="true"
+        placeholder="Digite uma palavra"
+      ></ion-searchbar>
+    </ion-item>
     <div class="container">
-      <ion-item>
-        <ion-searchbar  [(ngModel)]="word" animated="true" placeholder="Digite uma palavra"></ion-searchbar>
-      </ion-item>
-      <ion-item>
-        <div class="container center-button">
-          <ion-button (click)="getWord(word)">Search</ion-button>
-        </div>
+      <ion-item lines="none">
+        <ion-button (click)="getWord(word)">Search</ion-button>
       </ion-item>
     </div>
+  </div>
 </ion-content>
