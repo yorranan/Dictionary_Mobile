@@ -8,19 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-word.page.scss'],
 })
 export class ViewWordPage implements OnInit {
-  
+  wordDetails: any;
 
   constructor(private api: WordsAPIService, private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     const word = history.state.word;
     this.searchWord(word);  
   }
 
-  searchWord(word: string) { 
-    this.api.getWord(word).subscribe(res => {
-      console.log(res);
-    });
+  async searchWord(word: string) { 
+    try {
+      this.wordDetails = await this.api.getWord(word).toPromise();
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(this.wordDetails.results);
   }
-
 }
