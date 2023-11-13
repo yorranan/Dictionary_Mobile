@@ -4,10 +4,6 @@ ion-content {
     height: 100%;
 }
 
-ion-item {
-    --background: #ebebeb;
-}
-
 .word {
     font-size: 35px;
     font-weight: bold;
@@ -29,16 +25,9 @@ h3 {
     font-family:'Times New Roman', Times, serif
 }
 
-p {
-    text-align: justify;
-    font-size: 15px;
-    color: #111111;
-}
-
 #main {
     border-bottom-style: solid;
     border-bottom-color: #646f4b;
-    margin-bottom: 10%;
 }
 
 #definitions {
@@ -53,13 +42,9 @@ p {
 .results {
     border-bottom-style: solid;
     border-bottom-color: #646f4b;
-    border-width: thin;
+    border-bottom-width: thin;
 }
 
-.synonyms {
-    display: flex;
-}
-
-.antonyms {
-    display: flex;
+.examples {
+    justify-items: auto;
 }
