@@ -8,38 +8,47 @@
 
 <ion-content [fullscreen]="true" *ngIf="wordDetails">
   <div id="main">
-    <ion-item lines="none">
-      <h1>{{ wordDetails.word }}</h1>
+    <ion-item lines="none" class="word">
+      {{ wordDetails.word }}
     </ion-item>
-    <ion-item lines="none">
-      <div>
-        <h2>{{ wordDetails.pronunciation.all }}</h2>
-      </div>
+    <ion-item lines="none" class="pronunciation">
+      {{ wordDetails.pronunciation.all }}
     </ion-item>
   </div>
-  <div>
-    <ion-item lines="none" *ngFor="let result of wordDetails.results">
-      <div id="definitions">
-        <ion-text><strong>{{ result.partOfSpeech }}</strong></ion-text>
-        <!-- Mostra a definição -->
-        <ion-text>
-          {{ result.definition }}
-        </ion-text>
-        <!-- Mostra os exemplos -->
-        <ion-list lines="none" *ngIf="result.examples">
-          <ion-item *ngFor="let example of result.examples">
-            {{ example }}
-          </ion-item>
-        </ion-list>
-        <!-- Mostra os sinônimos -->
-        <ion-list lines="none" *ngFor="let synonym of result.synonyms">
-          <ion-item>{{ synonym }}</ion-item> 
-        </ion-list>
-        <!-- Mostra os antônimos -->
-        <ion-list lines="none" *ngFor="let antonym of result.antonyms">
-          <ion-item>{{ antonym }}</ion-item> 
-        </ion-list>
-      </div>
+  <ion-list *ngFor="let result of wordDetails.results" class="results">
+    <ion-item class="partOfSpeech" lines="none">
+      {{ result.partOfSpeech }}
     </ion-item>
-  </div>
+    <!-- Mostra a definição -->
+    <ion-item class="definition" lines="none">
+      {{ result.definition }}
+    </ion-item>
+    <!-- Mostra os exemplos -->
+    <ion-item lines="none" *ngIf="result.examples">
+      <p>Examples:</p>
+      <ion-list *ngIf="result.examples">
+        <ion-item lines="none" class="example" *ngFor="let example of result.examples">
+          {{ example }}
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <!-- Mostra os sinônimos -->
+    <ion-item lines="none" *ngIf="result.synonyms">
+      <p>Synonyms:</p> 
+      <ion-list *ngFor="let synonym of result.synonyms" class="synonyms">
+        <ion-item class="synonym" lines="none">
+          {{ synonym }};
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <!-- Mostra os antônimos -->
+    <ion-item lines="none" *ngIf="result.antonyms">
+      <p>Antonyms:</p>
+      <ion-list *ngFor="let antonym of result.antonyms" class="antonyms">
+        <ion-item class="antonym" lines="none">
+          {{ antonym }};
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
 </ion-content>
